@@ -60,33 +60,39 @@
 	text-align: center;
 }
 
-
-.filename {
-	font-weight: bold;
-	font-variant: small-caps;
-	font-size: 145%;
-	margin-bottom: 10px;
+.description_heading {
+	font-style: italic;
+	margin-bottom: 4px;
 }
 
 .description {
-	font-style: italic;
+	font-weight: bold;
 	font-size: 110%;
 	margin-bottom: 10px;
 }
 
 .filepath, .counter, .uploader {
-	font-weight: bold;
+/* 	font-weight: bold; */
 }
 
 .entry_left {
-	width: 60%;
+	width: 50%;
 }
 .entry_middle {
-	width: 30%;
+	width: 40%;
 }
 .entry_right {
 	padding-left: 40px;
+	padding-right: 10px;
+	padding-top: 5px;
 	width: 10%;
+}
+
+.entry_right input {
+	margin-bottom: 5px;
+	font-size: 125%;
+	font-weight: bold;
+	padding: 5px;
 }
 
 #newlink {
@@ -101,4 +107,14 @@
 	padding: 10px;
 	border-radius: 5px;
 	text-decoration: none;
+}
+
+.det_l {
+	text-align: right;
+/* 	font-weight: bold; */
+	font-style:italic;
+}
+
+.det_r {
+	font-weight: bold;
 }

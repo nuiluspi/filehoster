@@ -13,19 +13,11 @@
 
   <div class="field">
     <%= f.label :filename %><br />
-    <%= f.text_field :filename, :presence => true %>
-  </div>
-  <div class="field">
-    <%= f.label :filepath %><br />
-    <%= f.text_field :filepath, :presence => true %>
+    <%= f.file_field :filename %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, :presence => true %>
-  </div>
-  <div class="field">
-    <%= f.label :uploader %><br />
-    <%= f.text_field :uploader, :presence => true %>
+    <%= f.text_area :description %>
   </div>
   <div style="display: none">
   <div class="field">

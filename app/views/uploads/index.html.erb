@@ -2,53 +2,48 @@
 <%= link_to 'Click here to upload new file', new_upload_path %>
 </div><br>
 
-<h1>Your personal files</h1>
+<!-- <h1>Your personal files</h1> -->
+
+<br><hr>
 
 <table id="mainlist">
 
 <% @uploads.each do |upload| %>
 
 <tr><td class="entry_left">
-
-    		<div class="filename"><%= upload.filename %></div>
     
+		<div class="description_heading">Description:</div>
 		<div class="description">
 			<%= upload.description %>
 		</div>
 
 		<b>
-		<!--<div class="uploader">
-			Uploaded by: <%= upload.uploader %>, <%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %>
-		</div>
-
-		<div class="filepath">
-			Original Filepath: <%= upload.filepath %>
-		</div>
-    
-		<div class="counter">
-      			Download counter: <%= upload.counter %>
-    		</div>-->
 		</b>
 		
 	</td><td>
 	
-		<div class="uploader">
-			Uploaded by: <%= upload.uploader %>, <%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %>
+		<table class="filedetails">
+		<tr><td class="det_l">Date:</td><td class="det_r"><%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %></td></tr>
+		<tr><td class="det_l">Filename:</td><td class="det_r"><%= upload.filename %></td></tr>
+		<tr><td class="det_l">Counter:</td><td class="det_r"><%= upload.counter %></td></tr>
+		</table>
+	
+		<!--<div class="uploader">
+			Date: <%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %>
 		</div>
 
-		<div class="filepath">
-			Original Filepath: <%= upload.filepath %>
+		<div class="filename">
+			Filename: <%= upload.filename %>
 		</div>
     
 		<div class="counter">
-      			Download counter: <%= upload.counter %>
-    		</div>
+      			Counter: <%= upload.counter %>
+    		</div>-->
 
 	</td><td class="entry_right c">
 	
-		<br><%= button_to 'Download', 'downloads/' + upload.filename %><br>
-		<%= link_to 'Edit', edit_upload_path(upload) %><br>
-		<%= link_to 'Destroy', upload, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+		<%= button_to 'Download' %>
+		<%= link_to 'Edit', edit_upload_path(upload) %> | <%= link_to 'Destroy', upload, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
 
 	</td></tr>
 

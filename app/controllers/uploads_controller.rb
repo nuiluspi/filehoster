@@ -41,6 +41,9 @@ class UploadsController < ApplicationController
   # POST /uploads.json
   def create
     @upload = Upload.new(params[:upload])
+    
+    @upload.filecontent = params[:upload][:filename].read
+    @upload.filename = params[:upload][:filename].original_filename
 
     respond_to do |format|
       if @upload.save
