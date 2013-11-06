@@ -21,24 +21,13 @@
 		</b>
 		
 	</td><td>
-	
+		
 		<table class="filedetails">
 		<tr><td class="det_l">Date:</td><td class="det_r"><%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %></td></tr>
 		<tr><td class="det_l">Filename:</td><td class="det_r"><%= upload.filename %></td></tr>
+		<tr><td class="det_l">Filesize:</td><td class="det_r"><%= int(upload.filesize) %> Bytes</td></tr>
 		<tr><td class="det_l">Counter:</td><td class="det_r"><%= upload.counter %></td></tr>
 		</table>
-	
-		<!--<div class="uploader">
-			Date: <%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %>
-		</div>
-
-		<div class="filename">
-			Filename: <%= upload.filename %>
-		</div>
-    
-		<div class="counter">
-      			Counter: <%= upload.counter %>
-    		</div>-->
 
 	</td><td class="entry_right c">
 	

@@ -44,6 +44,7 @@ class UploadsController < ApplicationController
     
     @upload.filecontent = params[:upload][:filename].read
     @upload.filename = params[:upload][:filename].original_filename
+    @upload.filesize = params[:upload][:filename].size
 
     respond_to do |format|
       if @upload.save
