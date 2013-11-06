@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  filename: MyString
+  filepath: MyString
+  description: MyText
+  uploader: MyString
+  counter: 1
+  uploaddate: 2013-11-06 09:29:00
+
+two:
+  filename: MyString
+  filepath: MyString
+  description: MyText
+  uploader: MyString
+  counter: 1
+  uploaddate: 2013-11-06 09:29:00

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your personal Files</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header"><br>&nbsp;Your very personal File Hoster</div>
+
+<div id="nav"><br><br>
+<a href="/">Go Home</a><br>
+</div>
+
+<div id="main">
+<%= yield %>
+</div>
+
+</body>
+</html>
