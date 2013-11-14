@@ -1,5 +1,8 @@
 Filehoster::Application.routes.draw do
-  resources :uploads
+	
+  resources :uploads do
+	  post :download
+  end
 
 
   # The priority is based upon order of creation:

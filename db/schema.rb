@@ -11,17 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106190658) do
+ActiveRecord::Schema.define(:version => 20131114165628) do
 
   create_table "uploads", :force => true do |t|
     t.text     "description"
     t.integer  "counter"
     t.datetime "uploaddate"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.text     "filecontent"
     t.string   "filename"
     t.decimal  "filesize"
+    t.string   "content_type"
   end
 
 end

@@ -45,6 +45,7 @@ class UploadsController < ApplicationController
     @upload.filecontent = params[:upload][:filename].read
     @upload.filename = params[:upload][:filename].original_filename
     @upload.filesize = params[:upload][:filename].size
+    @upload.content_type = params[:upload][:filename].content_type.chomp
 
     respond_to do |format|
       if @upload.save
@@ -71,6 +72,16 @@ class UploadsController < ApplicationController
         format.json { render json: @upload.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  
+  def download
+	  
+	@upload = Upload.find(params[:upload_id])
+	@upload.counter = @upload.counter+1
+	send_data(@upload.filecontent, :type => @upload.content_type, :filename => @upload.filename, :disposition => 'download')
+	@upload.save
+
   end
 
   # DELETE /uploads/1

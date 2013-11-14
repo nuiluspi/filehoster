@@ -12,8 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :filename %><br />
-    <%= f.text_field :filename %>
+   
+    <%= if not @upload.filename.blank?
+		"Original Filename: " + @upload.filename;
+	else
+		f.label :filename
+	end%>
+    <%= raw("<br>") %>
+    <%= f.file_field :filename %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -22,7 +28,7 @@
   <div style="display: none">
   <div class="field">
     <%= f.label :counter %><br />
-    <%= f.number_field :counter %>
+    <%= f.number_field :counter, :value => "0" %>
   </div>
   <div class="field">
     <%= f.label :uploaddate %><br />
