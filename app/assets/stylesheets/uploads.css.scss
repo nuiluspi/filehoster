@@ -2,29 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	background-color: #f5f5f5;
+}
+
+/* TOP ROW */
 #header {
 	position: absolute;
-	top: -10px;
+	position: fixed;
+	top: 0;
 	left: 0;
 	right: 0;
-/* 	width: 100%; */
-	position: fixed;
-	height: 55px;
+	height: 45px;
+	padding-top: 15px;
 	background:black;
 	color: white;
 	font-size: 40px;
-	padding: 5px;
 	z-index: 1;
 }
 
+/* SIDE BAR (RIGHT SIDE) */
 #nav {
 	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 55px;
 	width: 100px;
 	background: black;
 	color: white;
-	position: fixed;
 	overflow: auto;
 	bottom: 0;
 	text-align: center;
@@ -36,65 +41,21 @@
 }
 
 #nav a:active, #nav a:hover {
-	text-decoration: underline;
+	color: black;
+	background-color: white;
 }
 
+
+/* MAIN AREA */
 #main {
 	position: absolute;
 	left: 110px;
-	right: 0;
+	right: 10px;
 	top: 60px;
-	background: white;
-}
-
-#mainlist {
-	border-collapse: collapse;
-}
-.b {
-	border: 1px solid black;
-}
-.p {
-	padding: 5px;
-}
-.c {
-	text-align: center;
-}
-
-.description_heading {
-	font-style: italic;
-	margin-bottom: 4px;
-}
-
-.description {
-	font-weight: bold;
-	font-size: 110%;
-	margin-bottom: 10px;
-}
-
-.filepath, .counter, .uploader {
-/* 	font-weight: bold; */
-}
-
-.entry_left {
-	width: 50%;
-}
-.entry_middle {
-	width: 40%;
-}
-.entry_right {
-	padding-left: 40px;
-	padding-right: 10px;
 	padding-top: 5px;
-	width: 10%;
 }
 
-.entry_right input {
-	margin-bottom: 5px;
-	font-size: 125%;
-	font-weight: bold;
-	padding: 5px;
-}
-
+/* "NEW UPLOAD" LINK */
 #newlink {
 	text-align: center;
 }
@@ -108,6 +69,73 @@
 	border-radius: 5px;
 	text-decoration: none;
 }
+#newlink a:hover, #newlink a:active {
+	color: black;
+	background: grey;
+}
+
+/* CRUD LINKS (like 'edit', 'delete', ...) */
+.crud_link a {
+	text-decoration: none;
+}
+
+/* COMPACT LISTING */
+#compactlist {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+#compactlist th {
+	border-bottom: 1px solid grey;
+	padding-bottom: 4px;
+}
+#compactlist td {
+	padding: 5px;
+}
+.compact_odd {
+	background-color: #dfdfdf;
+}
+.compact_even {
+	background-color: #b0adad;
+}
+
+/* DETAILED LISTING */
+#mainlist {
+	border-collapse: collapse;
+	width: 100%;
+}
+.description_heading {
+	font-style: italic;
+	margin-bottom: 4px;
+}
+
+.description {
+	font-weight: bold;
+	font-size: 110%;
+	margin-bottom: 10px;
+}
+.entry_left {
+	width: 50%;
+}
+.entry_middle {
+	width: 40%;
+}
+.entry_right {
+	padding-left: 40px;
+	padding-right: 10px;
+	padding-top: 5px;
+	width: 10%;
+	text-align: center;
+}
+
+.entry_right input {
+	margin-bottom: 5px;
+	font-size: 125%;
+	font-weight: bold;
+	padding: 5px;
+}
+
+
 
 .det_l {
 	text-align: right;

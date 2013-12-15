@@ -2,16 +2,18 @@
 
 one:
   filename: MyString
-  filepath: MyString
   description: MyText
-  uploader: MyString
+  uploaddate: 2013-12-15 20:39:16
+  filesize: 1
   counter: 1
-  uploaddate: 2013-11-06 09:29:00
+  filecontent: 
+  content_type: MyString
 
 two:
   filename: MyString
-  filepath: MyString
   description: MyText
-  uploader: MyString
+  uploaddate: 2013-12-15 20:39:16
+  filesize: 1
   counter: 1
-  uploaddate: 2013-11-06 09:29:00
+  filecontent: 
+  content_type: MyString

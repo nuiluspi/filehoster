@@ -1,0 +1,39 @@
+<br><div id="newlink">
+<%= link_to 'Click here to upload a new file', new_upload_path %>
+</div><br>
+
+<!-- <br><hr><br> -->
+<br>
+
+<table id="compactlist">
+
+<tr>
+	<th style="width: 30%">Filename</th>
+	<th style="width: 10%">Filesize</th>
+	<th style="width: 20%">Upload Date</th>
+	<th style="width: 10%">Counter</th>
+	<th style="width: 15%"></th>
+	<th style="width: 15%"></th>
+</tr>
+
+<% if @uploads.empty? %>
+	<tr><td colspan="6"><br><bR><i>No files have been uploaded so far... Why not upload the first one?</i></td></tr>
+<% end %>
+
+<% @uploads.sort_by{|e| e.uploaddate}.reverse.each do |upload| %>
+
+<tr title="<%= upload.description %>" class="<%= cycle('compact_odd', 'compact_even') %>">
+	<td><%= upload.filename %></td>
+	<td><%= number_with_precision((upload.filesize)/(1024*1024), :precision => 2) %> MB</td>
+	<td><%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %></td>
+	<td><%= upload.counter %></td>
+	<td><%= button_to 'Download', upload_download_path(upload) %></td>
+	<td class="crud_link"><%= link_to 'Edit', edit_upload_path(upload) %> | <%= link_to 'Delete', upload, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+	
+</tr>
+<% end %>
+</table>
+
+<br />
+
+

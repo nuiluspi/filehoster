@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
   <title>Your personal Files</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
 </head>
 <body>
-<div id="header"><br>&nbsp;Your very personal File Hoster</div>
 
-<div id="nav"><br><br>
-<a href="/">Go Home</a><br>
+<div id="header">&nbsp;Your very personal File Hoster</div>
+
+
+<div id="nav">
+	<br><br>
+	<a href="/">Compact Overview</a><br><br>
+	<a href="<%= uploads_path %>">Detailed Overview</a><br><br><br>
+	<%= button_to 'Logout', application_logout_path(1) %><br>
 </div>
 
 <div id="main">
-<%= yield %>
+	<% if not notice.blank? %>
+		<p class="notice"><%= notice %></p>
+	<% end %>
+	<% if not alert.blank? %>
+		<p class="alert"><%= alert %></p>
+	<% end %>
+
+	<%= yield %>
+
 </div>
 
 </body>

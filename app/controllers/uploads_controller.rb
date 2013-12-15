@@ -9,6 +9,17 @@ class UploadsController < ApplicationController
       format.json { render json: @uploads }
     end
   end
+  
+  # GET /compact
+  # GET /compact.json
+  def compact
+    @uploads = Upload.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @uploads }
+    end
+  end
 
   # GET /uploads/1
   # GET /uploads/1.json
@@ -49,8 +60,8 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
-        format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
-        format.json { render json: @upload, status: :created, location: @upload }
+        format.html { redirect_to compact_url, notice: 'Upload was successfully created.' }
+        format.json { render json: compact_url, status: :created, location: @upload }
       else
         format.html { render action: "new" }
         format.json { render json: @upload.errors, status: :unprocessable_entity }
@@ -62,10 +73,10 @@ class UploadsController < ApplicationController
   # PUT /uploads/1.json
   def update
     @upload = Upload.find(params[:id])
-
+    @upload.description = params[:upload][:description]
     respond_to do |format|
-      if @upload.update_attributes(params[:upload])
-        format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
+      if @upload.save
+        format.html { redirect_to compact_url, notice: 'Upload was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -74,14 +85,11 @@ class UploadsController < ApplicationController
     end
   end
   
-  
   def download
-	  
 	@upload = Upload.find(params[:upload_id])
 	@upload.counter = @upload.counter+1
 	send_data(@upload.filecontent, :type => @upload.content_type, :filename => @upload.filename, :disposition => 'download')
 	@upload.save
-
   end
 
   # DELETE /uploads/1
@@ -91,8 +99,10 @@ class UploadsController < ApplicationController
     @upload.destroy
 
     respond_to do |format|
-      format.html { redirect_to uploads_url }
+      format.html { redirect_to compact_url, notice: 'Upload was succesfully deleted.' }
       format.json { head :no_content }
     end
   end
+  
 end
+

@@ -1,7 +1,21 @@
 Filehoster::Application.routes.draw do
 	
+  devise_for :users
+
   resources :uploads do
-	  post :download
+    post :download
+  end
+  
+  resources :application do
+    post :logout
+  end
+  
+  get :compact, :action => "compact", :controller => "uploads"
+    
+  devise_for :users, :skip => [:registrations]
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
 
@@ -54,7 +68,9 @@ Filehoster::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'uploads#index'
+  # root :to => 'welcome#index'
+  
+  root :to => 'uploads#compact'
 
   # See how all your routes lay out with "rake routes"
 

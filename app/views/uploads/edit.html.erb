@@ -1,6 +1,6 @@
-<h1>Edit Details of Upload File</h1>
+<!--  The <h1> title has been moved to _form_edit so that we can show the filename in it  -->
 
-<%= render 'form' %>
+<%= render 'form_edit' %>
 
-<%= link_to 'Show', @upload %> |
-<%= link_to 'Back', uploads_path %>
+<br>
+<span class="crud_link"><%= link_to 'Cancel and go to Overview', compact_path %></span>
