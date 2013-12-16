@@ -18,11 +18,13 @@
 	<br><br>
 	<a href="/">Compact Overview</a><br><br>
 	<a href="<%= uploads_path %>">Detailed Overview</a><br><br><br>
-	<%= button_to 'Logout', application_logout_path(1) %><br>
-	<a href="<%= edit_user_registration_url %>"><i>my account</i></a><bR><bR>
-	<% if current_user.try(:admin?) %>
-		<hr>
-		<a href="<%= allusers_url %>">Manage All Users</a>
+	<% if current_user %>
+		<%= button_to 'Logout', application_logout_path(1) %><br>
+		<a href="<%= edit_user_registration_url %>"><i>my account</i></a><bR><bR>
+		<% if current_user.try(:admin?) %>
+			<hr>
+			<a href="<%= allusers_url %>">Manage All Users</a>
+		<% end %>
 	<% end %>
 </div>
 
