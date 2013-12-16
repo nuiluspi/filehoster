@@ -2,12 +2,12 @@
 <%= link_to 'Click here to upload a new file', new_upload_path %>
 </div><br>
 
-<br><hr>
+<br><% if not @uploads.empty? %> <hr> <%end%>
 
 <table id="mainlist">
 
 <% if @uploads.empty? %>
-	<tr style="width: 100%; text-align: center"><td><br><bR><i>No files have been uploaded so far... Why not upload the first one?</i></td></tr>
+	<tr style="width: 100%; text-align: center"><td><br><i>No files have been uploaded so far... Why not upload the first one?</i></td></tr>
 <% end %>
 
 <% @uploads.sort_by{|e| e.uploaddate}.reverse.each do |upload| %>

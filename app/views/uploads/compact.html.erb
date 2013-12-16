@@ -2,22 +2,23 @@
 <%= link_to 'Click here to upload a new file', new_upload_path %>
 </div><br>
 
-<!-- <br><hr><br> -->
 <br>
 
 <table id="compactlist">
 
-<tr>
-	<th style="width: 30%">Filename</th>
-	<th style="width: 10%">Filesize</th>
-	<th style="width: 20%">Upload Date</th>
-	<th style="width: 10%">Counter</th>
-	<th style="width: 15%"></th>
-	<th style="width: 15%"></th>
-</tr>
+<% if not @uploads.empty? %>
+	<tr>
+		<th style="width: 30%">Filename</th>
+		<th style="width: 10%">Filesize</th>
+		<th style="width: 20%">Upload Date</th>
+		<th style="width: 10%">Counter</th>
+		<th style="width: 15%"></th>
+		<th style="width: 15%"></th>
+	</tr>
 
-<% if @uploads.empty? %>
-	<tr><td colspan="6"><br><bR><i>No files have been uploaded so far... Why not upload the first one?</i></td></tr>
+<% else %>
+
+	<tr><td colspan="6"><br><i>No files have been uploaded so far... Why not upload the first one?</i></td></tr>
 <% end %>
 
 <% @uploads.sort_by{|e| e.uploaddate}.reverse.each do |upload| %>

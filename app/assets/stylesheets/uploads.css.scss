@@ -77,6 +77,7 @@ body {
 /* CRUD LINKS (like 'edit', 'delete', ...) */
 .crud_link a {
 	text-decoration: none;
+	border-bottom: 1px dotted black;
 }
 
 /* COMPACT LISTING */
