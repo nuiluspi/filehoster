@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
 
   def allusers
-	@users = User.all
-	respond_to do |format|
-	format.html # index.html.erb
-	format.json { render json: @uploads }
+	if not current_user.admin
+		redirect_to root_url
+	else
+		@users = User.all
+		respond_to do |format|
+		format.html # index.html.erb
+		format.json { render json: @uploads }
+	end
     end
   end
   
