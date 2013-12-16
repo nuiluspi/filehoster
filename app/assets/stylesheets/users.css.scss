@@ -1,0 +1,19 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#userlist {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+}
+#userlist td {
+	padding: 10px;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+
+#userlist th {
+	padding: 10px;
+	border: 1px solid black;
+}

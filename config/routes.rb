@@ -10,7 +10,13 @@ Filehoster::Application.routes.draw do
     post :logout
   end
   
+  resources :users do
+    get :approve
+    get :disapprove
+  end
+  
   get :compact, :action => "compact", :controller => "uploads"
+  get :allusers, :action => "allusers", :controller => "users"
     
   devise_for :users, :skip => [:registrations]
   as :user do

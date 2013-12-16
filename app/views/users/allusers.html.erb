@@ -1,0 +1,64 @@
+<h1>List of all Users</h1>
+
+<table id="userlist">
+<tr><th>Email</th><th>Admin</th><th>Approved</th><th></th><th></th></tr>
+
+<% @users.each do |u| %>
+
+<tr>
+	<td>
+		<% if u.admin %>
+			<b><%= u.email %></b>
+		<% else %>
+			<%= u.email %>
+		<% end %>
+	</td>
+	
+	<td>
+		<% if u.admin %>
+			<b>YES</b>
+		<% else %>
+			-----
+		<% end %>
+	</td>
+	
+	<td>
+		<% if u.approved %>
+			<b>approved</b>
+		<% else %>
+			disabled
+		<% end %>
+		
+	</td>
+	
+	
+	<td>
+		<% if not u.admin or not u.approved%>
+			<% if u.approved %>
+				<%= link_to 'Disable Account', user_disapprove_url(u.id) %>
+			<% else %>
+				<%= link_to 'Approve User', user_approve_url(u.id) %>
+			<% end %>
+		<% end %>
+		<% if u.admin %>
+			<i>You can't disable admin</i>
+		<% end %>
+	</td>
+	
+	<td>
+		<% if not u.admin %>
+			<%= button_to 'Delete user', u, method: :delete, confirm: "Are you sure?" %>
+		<% else %>
+			<i>You can't delete admin</i>
+		<% end %>
+	</td>
+		
+</tr>
+
+<% end %>
+
+</table>
+
+<br />
+
+
