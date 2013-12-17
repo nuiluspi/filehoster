@@ -10,17 +10,17 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   
-	def active_for_authentication? 
-		super && approved? 
-	end 
-
-	def inactive_message 
-		if !approved? 
-			:not_approved 
-		else 
-			super # Use whatever other message 
-		end 
-	end
+# 	def active_for_authentication? 
+# 		super && approved? 
+# 	end 
+# 
+# 	def inactive_message 
+# 		if !approved? 
+# 			:not_approved 
+# 		else 
+# 			super # Use whatever other message 
+# 		end 
+# 	end
 
   
   

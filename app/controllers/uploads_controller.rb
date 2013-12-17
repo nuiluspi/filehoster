@@ -53,10 +53,13 @@ class UploadsController < ApplicationController
   def create
     @upload = Upload.new(params[:upload])
     
-    @upload.filecontent = params[:upload][:filename].read
-    @upload.filename = params[:upload][:filename].original_filename
-    @upload.filesize = params[:upload][:filename].size
-    @upload.content_type = params[:upload][:filename].content_type.chomp
+    # This check is necessary, because the validators are apparently not called until AFTER these lines (would cause error if invalid form)
+    if not params[:upload][:description].blank? and not params[:upload][:filename].blank?
+	@upload.filecontent = params[:upload][:filename].read
+	@upload.filename = params[:upload][:filename].original_filename
+	@upload.filesize = params[:upload][:filename].size
+	@upload.content_type = params[:upload][:filename].content_type.chomp
+    end
 
     respond_to do |format|
       if @upload.save

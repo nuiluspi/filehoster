@@ -4,10 +4,10 @@ one:
   filename: MyString
   description: MyText
   uploaddate: 2013-12-15 20:39:16
-  filesize: 1
+  filesize: 1000000
   counter: 1
   filecontent: 
-  content_type: MyString
+  content_type:
 
 two:
   filename: MyString
@@ -16,4 +16,4 @@ two:
   filesize: 1
   counter: 1
   filecontent: 
-  content_type: MyString
+  content_type:
