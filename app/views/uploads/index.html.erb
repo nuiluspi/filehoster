@@ -29,7 +29,7 @@
 		<tr><td class="det_l">Filename:</td><td class="det_r"><%= upload.filename %></td></tr>
 		<!--<tr><td class="det_l">Filesize:</td><td class="det_r"><%= number_with_precision((upload.filesize)/(1024*1024), :precision => 2) %> MB</td></tr>-->
 		<tr><td class="det_l">Filesize:</td><td class="det_r"><%= upload.filesize %></td></tr>
-		<tr><td class="det_l">Filesize:</td><td class="det_r"><%= (upload.filesize)/(1024*1024) %></td></tr>
+		<tr><td class="det_l">Filesize:</td><td class="det_r"><%= (upload.filesize).to_f/(1024*1024) %></td></tr>
 		<tr><td class="det_l">Counter:</td><td class="det_r"><%= upload.counter %></td></tr>
 		</table>
 
