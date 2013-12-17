@@ -25,7 +25,7 @@
 
 <tr title="<%= upload.description %>" class="<%= cycle('compact_odd', 'compact_even') %>">
 	<td><%= upload.filename %></td>
-	<td><%= number_with_precision((upload.filesize)/(1024*1024), :precision => 2) %> MB</td>
+	<td><%= number_with_precision((upload.filesize).to_f/(1024*1024), :precision => 2) %> MB</td>
 	<td><%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %></td>
 	<td><%= upload.counter %></td>
 	<td><%= button_to 'Download', upload_download_path(upload) %></td>
