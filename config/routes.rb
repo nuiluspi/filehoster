@@ -1,30 +1,31 @@
 Filehoster::Application.routes.draw do
+
+  # USER ROUTES
 	
   devise_for :users
-
-  resources :uploads do
-    post :download
-  end
   
-  resources :application do
-    post :logout
-  end
-  
-  resources :users do
-    get :approve
-    get :disapprove
-  end
-  
-  get :compact, :action => "compact", :controller => "uploads"
-  get :deleteall, :action => "deleteall", :controller => "uploads"
-  get :allusers, :action => "allusers", :controller => "users"
-    
   devise_for :users, :skip => [:registrations]
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
-
+  
+  resources :users do
+    get :approve
+    get :disapprove
+    post :logout
+  end
+  
+  get :allusers, :action => "allusers", :controller => "users"
+  
+  # UPLOADS ROUTES
+	
+  resources :uploads do
+    post :download
+  end
+  
+  get :compact, :action => "compact", :controller => "uploads"
+  get :deleteall, :action => "deleteall", :controller => "uploads"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -46,5 +46,14 @@ class UsersController < ApplicationController
         redirect_to allusers_url, notice: "User deleted."
     end
   end
+  
+  
+  def logout
+    reset_session
+    respond_to do |format|
+      format.html { redirect_to new_user_session_url, notice: 'Signed out successfully.' }
+      format.json { head :no_content }
+    end
+  end 
 
 end

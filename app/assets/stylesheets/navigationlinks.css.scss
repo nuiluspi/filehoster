@@ -1,3 +1,9 @@
-#index_index_uploads, #compact_compact_uploads, #compact_edit_uploads, #compact_new_uploads, #edit_edit_registrations, #allusers_allusers_users {
+/* Only the currently visited link has the right id to match one of these */
+#index_index_uploads,
+#compact_compact_uploads,
+#compact_edit_uploads,
+#compact_new_uploads,
+#edit_edit_registrations,
+#allusers_allusers_users {
 	border-bottom: 1px dotted white;
 }

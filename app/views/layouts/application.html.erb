@@ -18,7 +18,7 @@
 	<a href="/" id="compact_<%= action_name %>_<%= controller_name %>">Compact Overview</a><br><br>
 	<a href="<%= uploads_path %>" id="index_<%= action_name %>_<%= controller_name %>">Detailed Overview</a><br><br><br>
 	<% if current_user %>
-		<%= button_to 'Logout', application_logout_path(1) %><br>
+		<%= button_to 'Logout', user_logout_path(1) %><br>
 		<a href="<%= edit_user_registration_url %>" id="edit_<%= action_name %>_<%= controller_name %>"><i>my account</i></a><bR><bR>
 		<% if current_user.try(:admin?) %>
 			<hr>
