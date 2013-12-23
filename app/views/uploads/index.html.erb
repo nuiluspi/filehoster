@@ -30,10 +30,22 @@
 	</td><td>
 		
 		<table class="filedetails">
-		<tr><td class="det_l">Date:</td><td class="det_r"><%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %></td></tr>
-		<tr><td class="det_l">Filename:</td><td class="det_r"><%= upload.filename %></td></tr>
-		<tr><td class="det_l">Filesize:</td><td class="det_r"><%= number_with_precision((upload.filesize).to_f/(1024*1024), :precision => 2) %> MB</td></tr>
-		<tr><td class="det_l">Counter:</td><td class="det_r"><%= upload.counter %></td></tr>
+		<tr>
+			<td class="det_l">Date:</td>
+			<td class="det_r"><%= upload.uploaddate.strftime("%d/%m/%Y, %H:%M:%S") %></td>
+		</tr>
+		<tr>
+			<td class="det_l">Filename:</td>
+			<td class="det_r"><%= upload.filename %></td>
+		</tr>
+		<tr>
+			<td class="det_l">Filesize:</td>
+			<td class="det_r"><%= number_with_precision((upload.filesize).to_f/(1024*1024), :precision => 2) %> MB</td>
+		</tr>
+		<tr>
+			<td class="det_l">Counter:</td>
+			<td class="det_r"><%= upload.counter == 0 ? "-" : upload.counter %></td>
+		</tr>
 		</table>
 
 	</td><td class="entry_right">
