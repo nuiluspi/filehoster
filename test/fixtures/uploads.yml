@@ -1,19 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  filename: MyString
+  filename: testtest_|_testtest_|_testtest
   description: MyText
   uploaddate: 2013-12-15 20:39:16
   filesize: 1000000
   counter: 1
-  filecontent: 
-  content_type:
+  filecontent: 123
+  content_type: testtest/test
 
 two:
-  filename: MyString
+  filename: testtest_|_testtest_|_testtest
   description: MyText
   uploaddate: 2013-12-15 20:39:16
   filesize: 1
   counter: 1
-  filecontent: 
-  content_type:
+  filecontent: 123
+  content_type: testtest/test
+  

@@ -1,20 +1,32 @@
 require 'test_helper'
 
 class UploadsControllerTest < ActionController::TestCase
-  setup do
-    @upload = uploads(:one)
-  end
+	
+   include Devise::TestHelpers  
+  # fixtures :keys
+
+   setup do
+      @upload = uploads(:one)
+      @user = User.create!(
+        :email => 'testuser@demomailtest.com',
+        :password => 'MyTestingPassword',
+        :password_confirmation => 'MyTestingPassword'
+      )
+      sign_in @user
+  #    @key = keys(:one)
+   end
+	
 
   test "should get index" do
     get :index
-    assert_response 302
+    assert_response 200
     # THE FOLLOWING CAUSES AND ERROR (NOT QUITE SURE WHY...)
     # assert_not_nil assigns(:uploads)
   end
 
   test "should get new" do
     get :new
-    assert_response 302
+    assert_response 200
   end
 
   test "should create upload" do
@@ -22,17 +34,17 @@ class UploadsControllerTest < ActionController::TestCase
       post :create, upload: { content_type: @upload.content_type, counter: @upload.counter, description: @upload.description, filecontent: @upload.filecontent, filename: @upload.filename, filesize: @upload.filesize, uploaddate: @upload.uploaddate }
     end
 
-    assert_redirected_to upload_path(assigns(:upload))
+    assert_redirected_to compact_path
   end
 
   test "should show upload" do
     get :show, id: @upload
-    assert_response 302
+    assert_response 200
   end
 
   test "should get edit" do
     get :edit, id: @upload
-    assert_response 302
+    assert_response 200
   end
 
   test "should update upload" do
@@ -46,6 +58,6 @@ class UploadsControllerTest < ActionController::TestCase
       delete :destroy, id: @upload
     end
 
-    assert_redirected_to uploads_path
+    assert_redirected_to compact_path
   end
 end
