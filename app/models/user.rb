@@ -5,25 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
+  # Accessible (or protected) attributes for the model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
-  
-  
-# 	def active_for_authentication? 
-# 		super && approved? 
-# 	end 
-# 
-# 	def inactive_message 
-# 		if !approved? 
-# 			:not_approved 
-# 		else 
-# 			super # Use whatever other message 
-# 		end 
-# 	end
 
-  
-  
-  
-  
 end
