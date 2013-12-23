@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 	@user.approved = "f"
 	respond_to do |format|
 		if @user.save
-			format.html { redirect_to allusers_url, notice: 'User was DISapproved succesfully.' }
+			format.html { redirect_to allusers_url, notice: 'User was disabled succesfully.' }
 			format.json { render json: allusers_url, status: :updated, location: @user }
 		else
 			format.html { render action: "allusers" }
