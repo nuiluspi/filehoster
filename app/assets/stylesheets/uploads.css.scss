@@ -81,6 +81,16 @@ body {
 	border-bottom: 1px dotted black;
 }
 
+#deletealllink {
+	 text-align: right;
+	 position: absolute;
+	 width: 100%;
+}
+
+#deletealllink a {
+	color: red;
+}
+
 /* COMPACT LISTING */
 #compactlist {
 	width: 100%;

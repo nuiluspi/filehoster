@@ -16,6 +16,7 @@ Filehoster::Application.routes.draw do
   end
   
   get :compact, :action => "compact", :controller => "uploads"
+  get :deleteall, :action => "deleteall", :controller => "uploads"
   get :allusers, :action => "allusers", :controller => "users"
     
   devise_for :users, :skip => [:registrations]

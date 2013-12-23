@@ -1,3 +1,8 @@
+<% if not @uploads.empty? %>
+	<div id="deletealllink">
+		<%= link_to "Delete all files", deleteall_url, :data => { :confirm => 'Are you sure you want to delete EVERYTHING?' } %>
+	</div>
+<% end %>
 <br><div id="newlink">
 <%= link_to 'Click here to upload a new file', new_upload_path %>
 </div><br>

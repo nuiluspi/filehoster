@@ -94,6 +94,18 @@ class UploadsController < ApplicationController
 	send_data(@upload.filecontent, :type => @upload.content_type, :filename => @upload.filename, :disposition => 'download')
 	@upload.save
   end
+  
+  
+  def deleteall
+	  @uploads = Upload.all
+	  @uploads.each do |u|
+		  u.destroy
+	  end
+	  respond_to do |format|
+		format.html { redirect_to compact_url, notice: 'All Uploads were successfully deleted' }
+		format.json { head :no_content }
+	  end
+  end
 
   # DELETE /uploads/1
   # DELETE /uploads/1.json
